@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm UCLN của a và b</title>
+    <style>
+        body { background: black; color: white; font-size: 18px; font-family: Arial; }
+        input, button { font-size: 18px; }
+        a { color: lightblue; }
+    </style>
+    <script>
+        function timUCLN(a, b) {
+            while (b !== 0) {
+                let t = b;
+                b = a % b;
+                a = t;
+            }
+            return a;
+        }
+
+        function thucHienTinhToan() {
+            let a = parseInt(document.getElementById('aValue').value);
+            let b = parseInt(document.getElementById('bValue').value);
+            let ucln = timUCLN(a, b);
+            document.getElementById('ketQua').innerText = "UCLN của " + a + " và " + b + " là: " + ucln;
+        }
+    </script>
+</head>
+<body>
+    <h1>Tìm UCLN của hai số a và b</h1>
+    
+    <label>Nhập a:</label> <input id="aValue" type="number" value="10">
+    <br><br>
+    <label>Nhập b:</label> <input id="bValue" type="number" value="15">
+    <br><br>
+    
+    <button onclick="thucHienTinhToan()">Tính UCLN</button>
+    
+    <p id="ketQua"></p>
+</body>
+</html>
